@@ -1,33 +1,31 @@
-# Carte du Ciel - Frontend
+# Carte du Ciel - Backend
 
 ## Description
-Cette application Angular permet de visualiser une carte interactive du ciel basée sur une base de données contenant plus de 3000 objets célestes. 
+Ce backend est une API RESTful développée pour servir les données d'une base contenant plus de 3000 objets célestes. Il prend en charge la gestion des données et fournit des points d'accès pour les visualisations du frontend.
 
 ### Fonctionnalités principales
-- Visualisation des 50 étoiles les plus proches, les plus brillantes, les plus chaudes, et les plus grandes.
-- Affichage des constellations et des planètes du système solaire.
-- Pop-ups interactifs pour les étoiles (nom et constellation associée).
-- Paramétrage du lieu, de la date et de l'heure d'observation.
+- Extraction des données des étoiles, planètes et constellations.
+- Filtrage par luminosité, distance, taille, température, etc.
+- Gestion des paramètres de localisation et de temps pour les observations.
 
 ## Prérequis
 - Node.js (version 18+ recommandée)
-- Angular CLI (version 19+)
+- Base de données PostgreSQL ou fichier CSV local.
 
 ## Installation et Lancement
 
 1. **Cloner le dépôt :**
 ```bash
-git clone https://github.com/tkmmoise/carte-du-ciel-frontend
-cd carte-du-ciel-frontend
+git clone https://github.com/tkmmoise/carte-du-ciel-backend.git
+cd carte-du-ciel-backend
  ```
 
 2. **Installer les dépendances :**
 ```bash
-git clone https://github.com/tkmmoise/carte-du-ciel-frontend
-cd carte-du-ciel-frontend
- ```
+npm install
+```
 
 3. **Lancer l'application :**
 ```bash
-ng serve
+npm start
 ```
