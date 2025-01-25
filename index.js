@@ -25,26 +25,26 @@ let largestStars = [];
 function loadCsvData() {
   return new Promise((resolve, reject) => {
     const results = [];
-    fs.createReadStream('./data/stars-v2.csv') 
+    fs.createReadStream('./data/stars-db.csv') 
       .pipe(csv())
       .on('data', (data) => results.push(data))
       .on('end', () => {
         stars = results.map((star) => (formatStar(parseStar(star))));
 
         // Calculer les étoiles visibles à l’œil nu
-        visibleStars = stars.filter((star) => star.mag < 6.5);
+        visibleStars = stars.filter((star) => star.mag < 6);
 
         // Calculer les 50 étoiles les plus proches visibles à l’œil nu
-        closestStars = visibleStars.toSorted((a, b) => a.dist - b.dist).slice(0, 50);
+        closestStars = visibleStars.toSorted((a, b) => a.dist - b.dist).slice(0, 250);
 
         // Calculer les 50 étoiles les plus brillantes
-        brightestStars = stars.toSorted((a, b) => a.mag - b.mag).slice(0, 50);
+        brightestStars = stars.toSorted((a, b) => a.mag - b.mag).slice(0, 250);
 
         // Calculer les 50 étoiles les plus chaudes
-        hottestStars = stars.toSorted((a, b) => a.ci - b.ci).slice(0, 50);
+        hottestStars = stars.toSorted((a, b) => a.ci - b.ci).slice(0, 250);
 
         // Calculer les 50 étoiles les plus grosses
-        largestStars = stars.toSorted((a, b) => b.lum - a.lum).slice(0, 50);
+        largestStars = stars.toSorted((a, b) => b.lum - a.lum).slice(0, 250);
 
         resolve();
       })
@@ -59,7 +59,7 @@ app.get('/api/stars', (req, res) => {
 
 // Endpoint : Toutes les étoiles filtrées en une seule réponse
 app.get('/api/stars/filters', (req, res) => {
-  res.json({ closestStars, brightestStars, hottestStars, largestStars });
+  res.json({ visibleStars, closestStars, brightestStars, hottestStars, largestStars });
 });
 
 
