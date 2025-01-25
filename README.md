@@ -20,7 +20,11 @@ git clone https://github.com/tkmmoise/carte-du-ciel-backend.git
 cd carte-du-ciel-backend
  ```
 
-2. **Installer les dépendances :**
+2. **Configuer le fichier .env**
+- Copier le fichier `.env.example` et le renommer en `.env`
+
+
+3. **Installer les dépendances :**
 ```bash
 npm install
 ```
@@ -30,7 +34,7 @@ npm install
 - express
 - nodemon
 
-3. **Lancer l'application :**
+4. **Lancer l'application :**
 ```bash
 npm start
 ```
