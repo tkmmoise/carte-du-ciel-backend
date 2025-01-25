@@ -24,6 +24,11 @@ cd carte-du-ciel-backend
 ```bash
 npm install
 ```
+**Liste des dépendances**
+- cors
+- csv-parser
+- express
+- nodemon
 
 3. **Lancer l'application :**
 ```bash
